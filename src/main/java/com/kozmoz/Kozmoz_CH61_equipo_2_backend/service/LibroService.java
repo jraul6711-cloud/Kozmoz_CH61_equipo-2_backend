@@ -46,7 +46,22 @@ public class LibroService {
 				}//foreach
 				return tmp;
 			}//deleteBook
-			
-			
+
+			public Libro updateBook(long id, String nombre, String descripcion,
+					String imagen, Double precio) {
+				Libro tmp=null;
+				for (Libro libro : lista) {
+					if(libro.getId()==id) {
+						tmp=libro;
+						if(nombre!=null) libro.setNombre(nombre);
+						if(descripcion!=null) libro.setDescripcion(descripcion);
+						if(imagen!=null) libro.setImagen(imagen);
+						if(precio!=null) libro.setPrecio(precio);
+						tmp=libro;
+						break;
+					}//if
+				}//foreach
+				return tmp;
+			}
 
 }// class libroService
