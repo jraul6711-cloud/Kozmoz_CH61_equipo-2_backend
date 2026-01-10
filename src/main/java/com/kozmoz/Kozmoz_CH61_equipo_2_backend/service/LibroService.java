@@ -30,4 +30,23 @@ public class LibroService {
 				return tmp;
 			}//getBooks
 
+			public Libro addBook(Libro libro) {
+				lista.add(libro);
+				return libro;
+			}//addBook
+
+			public Libro deleteBook(long id) {
+				Libro tmp=null;
+				for (Libro libro : lista) {
+					if(libro.getId()==id) {
+						tmp=libro;
+						lista.remove(libro);
+						break;
+					}//if
+				}//foreach
+				return tmp;
+			}//deleteBook
+			
+			
+
 }// class libroService
