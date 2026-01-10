@@ -3,24 +3,36 @@ package com.kozmoz.Kozmoz_CH61_equipo_2_backend.controller;
 import java.util.List;
 
 import com.kozmoz.Kozmoz_CH61_equipo_2_backend.model.Libro;
+import com.kozmoz.Kozmoz_CH61_equipo_2_backend.service.LibroService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-
 
 @RestController
 @RequestMapping(path="/api") 
 public class LibroController  {
 	//GET
-	@GetMapping("/libro/")
+	
+	private final LibroService service;
+	
+	@Autowired
+	public LibroController(LibroService service) {
+		this.service= service;
+	}//constructor
+
+	@GetMapping("/libro/")  // http://localhost:8080/api/libro/
 	public List<Libro> getLibros(){
-		return List.of(
-				new Libro("nombre: Clean Code", "descripcion: Manual de manual de estilo para el desarrollo de software", "imagen.jpg", 850.00),
-				new Libro("nombre: El Hobbit", "descripcion: Una aventura épica en la Tierra Media", "imagenjpg", 420.00)
-				);
-		
+		return service.getBook();	
 	}//getLibros 
+	
+	@GetMapping("/libro/{prodid}")  // http://localhost:8080/api/libro/2
+	public Libro getLibro(@PathVariable("prodid") long id){
+		return service.getBooks(id);
+	}//getLibro
+		
 	
 	//POST
 	//DELETE
