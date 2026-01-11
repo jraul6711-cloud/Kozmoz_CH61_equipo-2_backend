@@ -32,34 +32,34 @@ public class UsuariosController {
 	
 	@GetMapping //http://localhost:8080/api/usuarios/
 	public List<Usuario> getUsers() {
-		return service.getAllUsuarios();
+		return service.getAllUsers();
 	}//Get Usuarios
 	
 	//GET Usuario
 	
 	@GetMapping(path="{userId}") //http://localhost:8080/api/usuarios/
 	public Usuario getUser(@PathVariable("userId") Long id) {
-		return service.getUsuario(id);
+		return service.getUser(id);
 	}//getUser
 	
 	//POST
 	
 	@PostMapping //http://localhost:8080/api/usuarios/
 	public Usuario addUser(@RequestBody Usuario usuario) {
-		return service.addUsuario(usuario);
+		return service.addUser(usuario);
 	}//addUser
 	
 	//DELETE
 	
 	@DeleteMapping(path="{userId}") //http://localhost:8080/api/usuarios/
 	public Usuario deleteUser(@PathVariable("userId") Long id) {
-		return service.deleteUsuario(id);
+		return service.deleteUser(id);
 	}//deleteUser
 	
 	//PUT
 	@PutMapping(path="{userId}")
 	public Usuario updateUser(@PathVariable("userId") Long id, @RequestBody ChangePassword changePassword) {
-		return service.updateUsuario(id, changePassword);
+		return service.updateUser(id, changePassword);
 	}//updateUser
 	
 }//class UsuariosController

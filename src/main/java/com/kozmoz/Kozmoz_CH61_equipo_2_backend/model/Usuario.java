@@ -1,10 +1,24 @@
 package com.kozmoz.Kozmoz_CH61_equipo_2_backend.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="usuarios")
 public class Usuario {
-	
-	private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(unique = true, nullable = false)
+	private Long id; //no incluido en el constructor
+	@Column(nullable = false)
 	private String nombre;
+	@Column(nullable = false)
 	private String email;
+	@Column(nullable = false)
 	private String password;
 //	private static Long total = Long.valueOf(0);
 	

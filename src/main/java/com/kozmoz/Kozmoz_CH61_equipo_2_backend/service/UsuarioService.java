@@ -1,66 +1,64 @@
 package com.kozmoz.Kozmoz_CH61_equipo_2_backend.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kozmoz.Kozmoz_CH61_equipo_2_backend.dto.ChangePassword;
 import com.kozmoz.Kozmoz_CH61_equipo_2_backend.model.Usuario;
+import com.kozmoz.Kozmoz_CH61_equipo_2_backend.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {
-	private final List<Usuario> lista = new ArrayList<Usuario>();
-
-	public UsuarioService() {
-		lista.add(new Usuario("Adrian Bringas","adrian@gmail.com","fejEGH149GEs"));	        
-        lista.add(new Usuario("Yessica Pérez","yessica@gmail.com","xdxdxDxDXd"));	        
-        lista.add(new Usuario("Ernesto Laguardia","ernesto@gmail.com","fjhfjekASW%^&"));
+	
+	private final UsuarioRepository repository;
+	@Autowired
+	public UsuarioService(UsuarioRepository repository) {
+		this.repository = repository;
+//		lista.add(new Usuario("Adrian Bringas","adrian@gmail.com","fejEGH149GEs"));	        
+//        lista.add(new Usuario("Yessica Pérez","yessica@gmail.com","xdxdxDxDXd"));	        
+//        lista.add(new Usuario("Ernesto Laguardia","ernesto@gmail.com","fjhfjekASW%^&"));
 	}//method UsuarioService
 	
-	public List<Usuario> getAllUsuarios() {
-		return lista;
-	}//getAllUsuarios
+	public List<Usuario> getAllUsers() {
+		return repository.findAll();
+	}//getAllUsers
 
-	public Usuario getUsuario(long id) {
+	public Usuario getUser(long id) {
+		return repository.findById(id).orElseThrow(
+				() -> new IllegalArgumentException("El usuario con el id[" + id + "] no esxiste")
+				);
+	}//getUser
+
+	public Usuario addUser(Usuario usuario) {
+		Optional<Usuario> user = repository.findByNombre(usuario.getNombre());
+		if (user.isEmpty()) {
+			repository.save(usuario);
+			return usuario;
+		}//if isEmpty
+		return null;
+	}//addUser
+
+	public Usuario deleteUser(Long id) {
 		Usuario tmp = null;
-		for (Usuario usuario : lista) {
-			if (usuario.getId() == id) {
-				tmp = usuario;
-				break;
-			}//if
-		}//forEach
+		if (repository.existsById(id)) {
+			tmp = repository.findById(id).get();
+			repository.deleteById(id);
+		}//if exists
 		return tmp;
-	}//getUsuario
+	}//deleteUser
 
-	public Usuario addUsuario(Usuario usuario) {
-		lista.add(usuario);
-		return usuario;
-	}//addUsuario
-
-	public Usuario deleteUsuario(Long id) {
+	public Usuario updateUser(Long id, ChangePassword changePassword) {
 		Usuario tmp = null;
-		for (Usuario usuario : lista) {
-			if (usuario.getId() == id) {
-				tmp = usuario;
-				lista.remove(usuario);
-				break;
-			}//if
-		}//forEach
-		return tmp;
-	}//deleteUsuario
-
-	public Usuario updateUsuario(Long id, ChangePassword changePassword) {
-		Usuario tmp = null;
-		for (Usuario usuario : lista) {
-			if (usuario.getId() == id) {
-				if (usuario.getPassword().equals(changePassword.getPassword())) {
-					usuario.setPassword(changePassword.getNPassword());
-					tmp = usuario;
-					break;
-				}//if equals
-			}//if
-		}//forEach
+		if (repository.existsById(id)) {
+			Usuario user = repository.findById(id).get();
+			if (user.getPassword().equals(changePassword.getPassword())) {
+				user.setPassword(changePassword.getNpassword());
+			}//ifEquals
+			tmp = user;
+		}//if exists
 		return tmp;
 	}//updateUsuario
 

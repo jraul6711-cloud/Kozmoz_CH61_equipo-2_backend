@@ -19,11 +19,11 @@ public class ChangePassword {
 		this.password = password;
 	}//setPassword
 
-	public String getNPassword() {
+	public String getNpassword() {
 		return nPassword;
 	}//getnPassword
 
-	public void setNPassword(String nPassword) {
+	public void setNpassword(String nPassword) {
 		this.nPassword = nPassword;
 	}//setnPassword
 
