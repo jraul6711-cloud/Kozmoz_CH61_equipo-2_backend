@@ -2,11 +2,11 @@ package com.kozmoz.Kozmoz_CH61_equipo_2_backend.dto;
 
 public class ChangePassword {
 	private String password;
-	private String nPassword;
-	public ChangePassword(String password, String nPassword) {
+	private String npassword;
+	public ChangePassword(String password, String npassword) {
 		super();
 		this.password = password;
-		this.nPassword = nPassword;
+		this.npassword = npassword;
 	}//constructor ChangePassword
 	
 	public ChangePassword() {}//constructor ChangePassword vacío
@@ -20,16 +20,16 @@ public class ChangePassword {
 	}//setPassword
 
 	public String getNpassword() {
-		return nPassword;
+		return npassword;
 	}//getnPassword
 
 	public void setNpassword(String nPassword) {
-		this.nPassword = nPassword;
+		this.npassword = nPassword;
 	}//setnPassword
 
 	@Override
 	public String toString() {
-		return "ChangePassword [password=" + password + ", nPassword=" + nPassword + "]";
+		return "ChangePassword [password=" + password + ", nPassword=" + npassword + "]";
 	}//toString
 	
 }//class ChangePassword

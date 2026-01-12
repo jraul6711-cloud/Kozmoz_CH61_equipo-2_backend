@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.kozmoz.Kozmoz_CH61_equipo_2_backend.dto.ChangePassword;
@@ -14,6 +15,10 @@ import com.kozmoz.Kozmoz_CH61_equipo_2_backend.repository.UsuarioRepository;
 public class UsuarioService {
 	
 	private final UsuarioRepository repository;
+	
+	@Autowired
+	private PasswordEncoder encoder;
+	
 	@Autowired
 	public UsuarioService(UsuarioRepository repository) {
 		this.repository = repository;
@@ -35,12 +40,27 @@ public class UsuarioService {
 	public Usuario addUser(Usuario usuario) {
 		Optional<Usuario> user = repository.findByNombre(usuario.getNombre());
 		if (user.isEmpty()) {
+			usuario.setPassword( encoder.encode(usuario.getPassword()) );
 			repository.save(usuario);
 			return usuario;
 		}//if isEmpty
 		return null;
 	}//addUser
 
+	public Usuario updateUser(Long id, ChangePassword changePassword) { 
+		Usuario tmp = null; 
+		if(repository.existsById(id)) { 
+			Usuario user = repository.findById(id).get(); 
+			if(encoder.matches(changePassword.getPassword(), user.getPassword())) {
+//			if(user.getPassword().equals(changePassword.getPassword()))  
+				user.setPassword( encoder.encode(changePassword.getNpassword()));
+				repository.save(user);
+				tmp = user;
+				}//ifEquals 
+			}//ifId exists
+			return tmp; 
+	}//updateUsuario
+	
 	public Usuario deleteUser(Long id) {
 		Usuario tmp = null;
 		if (repository.existsById(id)) {
@@ -50,16 +70,15 @@ public class UsuarioService {
 		return tmp;
 	}//deleteUser
 
-	public Usuario updateUser(Long id, ChangePassword changePassword) {
-		Usuario tmp = null;
-		if (repository.existsById(id)) {
-			Usuario user = repository.findById(id).get();
-			if (user.getPassword().equals(changePassword.getPassword())) {
-				user.setPassword(changePassword.getNpassword());
-			}//ifEquals
-			tmp = user;
-		}//if exists
-		return tmp;
-	}//updateUsuario
+	public boolean validateUser(Usuario usuario) {
+		Optional<Usuario> usr = repository.findByEmail(usuario.getEmail());
+		if (usr.isPresent()) {
+			Usuario user = usr.get();
+			if (encoder.matches(usuario.getPassword(), user.getPassword())) {
+				return true;
+			}//if matches
+		}//if usr.isPresent
+		return false;
+	}//validateUser
 
 }//class UsuarioService

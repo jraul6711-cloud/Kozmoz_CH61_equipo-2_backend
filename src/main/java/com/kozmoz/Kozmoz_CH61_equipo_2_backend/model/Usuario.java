@@ -8,13 +8,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="usuarios")
+@Table(name="users")
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(unique = true, nullable = false)
+//	@Column(unique = true, nullable = false)
+	@Column(name = "idUser", nullable = false)
 	private Long id; //no incluido en el constructor
-	@Column(nullable = false)
+	@Column(name="names", nullable = false)
 	private String nombre;
 	@Column(nullable = false)
 	private String email;
