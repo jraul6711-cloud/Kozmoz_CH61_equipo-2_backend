@@ -6,6 +6,7 @@ public class Libro {
 	private String descripcion;
 	private String imagen;
 	private Double precio;
+	private static long total;
 	
 	public Libro(String nombre, String descripcion, String imagen, Double precio) {
 		super();
@@ -13,9 +14,15 @@ public class Libro {
 		this.descripcion = descripcion;
 		this.imagen = imagen;
 		this.precio = precio;
+		Libro.total++;
+		this.id=Libro.total;
+		
 	}// constructor Libro
 	
-	public Libro() {} //Constructor vacio
+	public Libro() {
+		Libro.total++;
+		this.id=Libro.total;	
+	} //Constructor vacio
 
 	public String getNombre() {
 		return nombre;
