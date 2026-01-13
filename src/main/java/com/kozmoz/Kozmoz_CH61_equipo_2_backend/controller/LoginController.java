@@ -50,4 +50,8 @@ public class LoginController {
 					.compact();
 	}//generateToken
 	
+//	{
+//	    "accessToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJPbWFyQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwidHlwZSI6ImNsaWVudCIsImlhdCI6MTc2ODIxMTEwNiwiZXhwIjoxNzY4NDcwMzA2fQ.RfpjaBruTVW0z0Kq7ZX61jQ08Cnhw299KEqbPt-fqmA"
+//	}//caduca el jueves en la madrugada
+	
 }//class LoginController
