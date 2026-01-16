@@ -1,11 +1,34 @@
 package com.kozmoz.Kozmoz_CH61_equipo_2_backend.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "books")
 public class Libro {
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idBook")
 	private Long id;
+	
+	@Column(name = "nombre", nullable = false, length = 45)
 	private String nombre;
+	
+	@Column(name = "descripcion", nullable = false)
 	private String descripcion;
+	
+	@Column(name = "imagen", nullable = false)
 	private String imagen;
+	
+	@Column(name = "precio", nullable = false)
 	private Double precio;
+	
+	@Column(name = "total", nullable = false)
 	private static long total;
 	
 	public Libro(String nombre, String descripcion, String imagen, Double precio) {
