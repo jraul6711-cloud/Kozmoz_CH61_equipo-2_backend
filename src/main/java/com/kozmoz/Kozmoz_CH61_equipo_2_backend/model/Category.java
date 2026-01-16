@@ -19,17 +19,17 @@ public class Category {
     @Column(name = "names", nullable = false, length = 45)
     private String names;
 
-    // 🔹 Constructor vacío
+    //  Constructor vacío
     public Category() {
     }
 
-    // 🔹 Constructor con propiedades
+    // Constructor con propiedades
     public Category(Integer idCategory, String names) {
         this.idCategory = idCategory;
         this.names = names;
     }
 
-    // 🔹 Getters y Setters
+    // Getters y Setters
     public Integer getIdCategory() {
         return idCategory;
     }
