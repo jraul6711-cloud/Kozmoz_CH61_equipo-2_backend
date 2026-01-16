@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Acerca De</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="./CSS/estilos.css">
+
+    <!-- Stack Sans Headline -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap"
+        rel="stylesheet">
+
+    <!-- Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Stack+Sans+Headline:wght@200..700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body onload="load_navbar(); load_footer();">
+    <!-- NavBar -->
+    <div id="navbar"></div>
+
+    <!-- ¿Quiénes somos? -->
+
+    <h1 class="title-Us">¿Quiénes somos?</h1>
+
+    <div class="container my-5"> <!--Imagen alusiva-->
+        <div class="row">
+            <div class="col-sm descripcion">
+                <div class="card mx-auto my-5 descripcion1">
+                    <img src="./assets/Libros y café.jpg" id="" class="descripcion1" />
+                    <div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm descripcion"> <!--Descripción del proyecto-->
+                <div class="card mx-auto my-5 descripcion">
+                    <div class="card-body descripcion1">
+                        <h1 class=" descripcion">Kozmoz</h1>
+                        <p class="descripcion">El proyecto surge a partir de la necesidad de mejorar el acceso a
+                            bibliografía científica y especializada para estudiantes universitarios y de posgrado.
+                            En México, las librerías académicas y bibliotecas no cuentan con una oferta amplia y
+                            actualizada de libros científicos, y la importación de ejemplares suele implicar altos
+                            costos y demoras. </p>
+                        <p class="descripcion"> Esta situación limita el aprendizaje, la investigación y la formación
+                            académica. Por ello, la plataforma busca eliminar las barreras geográficas y económicas,
+                            facilitando el acceso a material científico y especializado en español e inglés de forma
+                            accesible y equitativa. </p>
+                    </div>
+                </div>
+            </div>
+            <!--Breve llamada a la acción-->
+            <h2 class="banner">¡Hey!, si tú, ¡detente y lee esto!</h2>
+
+            <p class="card-textobanner">El proyecto está dirigido a estudiantes, docentes, investigadores y profesionales que
+                necesitan libros científicos y especializados. Atiende a personas interesadas en la formación continua y la 
+                actualización académica, ofreciendo fuentes confiables en formato físico o digital, tanto en español como en
+                inglés. Su público principal son jóvenes y adultos de 18 a 40 años en México, especialmente del ámbito académico 
+                donde el acceso a bibliografía especializada es limitado.</p>
+                
+            <!--biografias-->
+
+            <h1 class="titulo"><i class="bi bi-person-bounding-box"></i> Biografías
+            </h1>
+
+            <main class="container mt-4">
+                <section>
+                    <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+                        <!-- row row-cols-1 row-cols-md-3 g-4 -->
+                        <!-- TARJETA -->
+                        <div class="col">
+                            <div class="card h-100 tarjeta">
+                                <img src="./assets/AdrianB.jpg" class="card-img-top"
+                                    alt="Adrian">
+                                <div class="card-body">
+                                    <h5 class="card-title">Raúl Adrián Bringas Jiménez
+                                        [Desarrollador Backend]
+                                    </h5>
+                                    <p class="card-text">Originario de la Ciudad de México,
+                                        Raúl vivió allí hasta los 18 años antes de mudarse al norte para estudiar su
+                                        licenciatura. Desde pequeño ha cultivado una pasión por las matemáticas, la
+                                        lógica y la programación. Su objetivo es despegar su carrera con este proyecto y
+                                        crecer profesionalmente en TI.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 tarjeta">
+                                <img src="./assets/CarlosC.jpg" class="card-img-top"
+                                    alt="Carlos Castilla">
+                                <div class="card-body">
+                                    <h5 class="card-title">Carlos Sebastián Castilla Mendoza [Scrum Master]</h5>
+                                    <p class="card-text">Originario de la Ciudad de México, me
+                                        apasiona la tecnología, la innovación y la resolución de problemas,
+                                        siendo hábil en matemáticas. Espero que al finalizar este bootcamp pueda
+                                        encontrar un trabajo que me permita viajar por el mundo mientras
+                                        continúo aprendiendo y manteniéndome actualizado en TI.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 tarjeta">
+                                <img src="./assets/Eduardo.jpg" class="card-img-top" alt="Eddy">
+                                <div class="card-body">
+                                    <h5 class="card-title">José Eduardo Frías Domínguez
+                                        [Desarrollador Backend]
+                                    </h5>
+                                    <p class="card-text">Originario en Guadalajara, Jalisco, José
+                                        estudió Ingeniería en Sistemas Automotrices motivado por su amor a los vehículos
+                                        y la programación. Su meta principal es integrarse al sector automotriz para
+                                        aplicar sus conocimientos técnicos, aportar valor real y lograr un crecimiento
+                                        personal y profesional a corto y largo plazo.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 tarjeta">
+                                <img src="./assets/JessicaB.jpg" class="card-img-top"
+                                    alt="Eddy">
+                                <div class="card-body">
+                                    <h5 class="card-title">Jessica Bacilia Pérez Romero
+                                        [Documentador / Analista]</h5>
+                                    <p class="card-text">Originaria de Puebla, Jessica está
+                                        inmersa en el aprendizaje tecnológico a través del bootcamp. Previo a esto,
+                                        desarrolló su talento artístico como tatuadora profesional. En su tiempo libre,
+                                        disfruta de una mezcla de pasiones que incluyen el dibujo, el aprendizaje de
+                                        nuevos idiomas y el ciclismo.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 tarjeta">
+                                <img src="./assets/JoeT.jpg" class="card-img-top"
+                                    alt="Joe">
+                                <div class="card-body">
+                                    <h5 class="card-title">Joe Bryan Torres Crucillo
+                                        [Desarrollador Front-End]
+                                    </h5>
+                                    <p class="card-text">Originario del Estado de México, Joe
+                                        tiene una formación académica enfocada en el área económico-administrativa. Sin
+                                        embargo, es un entusiasta multifacético con una fuerte pasión por los deportes,
+                                        la música y, especialmente, la tecnología, buscando desarrollarse activamente
+                                        dentro de este sector.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 tarjeta">
+                                <img src="./assets/KarenJ.jpg" class="card-img-top"
+                                    alt="Karen">
+                                <div class="card-body">
+                                    <h5 class="card-title">Karen Janet Ricárdez Santos
+                                        [Desarrolladora Frontend]
+                                    </h5>
+                                    <p class="card-text">Originaria de Tabasco, Karen se
+                                        trasladó a la Ciudad de México a los 18 años para realizar sus estudios de
+                                        licenciatura. Con un fuerte interés en las Ciencias de la Tierra y la
+                                        programación, busca desarrollar soluciones innovadoras para retos actuales y
+                                        profundizar sus conocimientos en Tecnologías de la Información.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card h-100 tarjeta">
+                                <img src="./assets/Yeraniia.jpg" class="card-img-top"
+                                    alt="Yerania">
+                                <div class="card-body">
+                                    <h5 class="card-title">Zoila Yerania González Hernández
+                                        [Product-Owner]</h5>
+
+                                    <p class="card-text">Originaria de Autlán, Jalisco, y formada en
+                                        Finanzas en Colima, Zoila es una persona creativa y lógica. Su perfil combina
+                                        disciplina y pensamiento crítico con intereses variados como la lectura, el área
+                                        médica y la tecnología. Disfruta aprender y explorar nuevas ideas que despierten
+                                        su curiosidad en los negocios.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </main>
+
+            <!--Mision vision y valores-->
+            <div class="accordion-body">
+                <div class="accordion">
+                    <hr>
+                    <div class="container">
+                        <div class="label">Misión</div>
+                        <div class="content">Facilitar el acceso a libros de ciencia especializados para estudiantes
+                            universitarios, de posgrado, autodidactas, docentes, investigadores y profesionales,
+                            ofreciendo una plataforma digital confiable, organizada y accesible que impulse el
+                            aprendizaje, la investigación y la elaboración de tesis.</div>
+                    </div>
+                    <hr>
+                    <div class="container">
+                        <div class="label">Visión</div>
+                        <div class="content">Convertirnos en la principal plataforma digital de libros científicos en
+                            los idiomas más utilizados en investigación académica, destacando por ofrecer títulos
+                            difíciles de conseguir y apoyar el desarrollo académico de estudiantes e investigadores.
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="container">
+                        <div class="label">Valores</div>
+                        <div class="content">
+                            <ol>
+                                <li>Pasión por el conocimiento.</li>
+                                <li>Integridad académica.</li>
+                                <li>Accesibilidad del saber.</li>
+                                <li>Innovación tecnológica.</li>
+                                <li>Responsabilidad educativa.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!--Footer-->
+            <div id="footer"></div>
+
+            <!-- Bootstrap JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Script JS -->
+            <script src="js/layout.js"></script>
+            <script src="js/main.js"></script>
+</body>
+
+</html>

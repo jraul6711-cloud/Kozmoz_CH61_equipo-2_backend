@@ -1,0 +1,58 @@
+/* Productos =========================================================== */
+#cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 0px 120px 0px;
+    justify-content: center;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    min-width: 250px;
+    width: 20%;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f7f7f5;
+}
+
+.card img {
+    max-width: 100%;
+    height: 400px;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 0.9em;
+    color: #506078;
+    margin-bottom: 10px;
+}
+
+.card span {
+    font-weight: bold;
+    color: #b46e4c;
+}
+
+/*Estilos para formulario que agrega objetos*/
+#card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+#card-form input, #card-form textarea, #card-form button {
+  padding: 8px;
+  font-size: 1rem;
+}
